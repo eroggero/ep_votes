@@ -1,24 +1,23 @@
 <?php
 /**
- * Plugin Name: EP Votes
- * EU Parliament Vote Reporter
- * ============================
- * Automatically imports voting data from HowTheyVote.eu and generates
- * detailed articles for each vote, complete with an interactive table
- * showing how every MEP voted.
- * 
- * Features:
- * - Fetches voting records directly from HowTheyVote.eu API
- * - Generates a dedicated article for each parliamentary vote
- * - Displays interactive, sortable tables with all MEP votes
- * - Includes political group breakdowns and vote summaries
- * 
- * Plugin URI: www.arums.org/eventi
- * Description: Importa automaticamente le votazioni del Parlamento Europeo da HowTheyVote.eu e crea un articolo per ciascuna, con tabella interattiva dei voti di ogni deputato.
- * Version: 0.6.0
- * Author: Elisabetta Roggero July 2026
- * License: GPL3
- * 
+ * Plugin Name: EU Parliament Votes
+ * Plugin URI:  https://github.com/eroggero/ep_votes
+ * Description: A WordPress plugin for tracking and presenting European Parliament topics and MEP votes in an interactive and accessible way.
+ * Version:     1.0.0
+ * Author:      eroggero
+ * Author URI:  https://github.com/eroggero
+ * License:     GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain: ep-votes
+ * Domain Path: /languages
+ *
+ * This plugin fetches data from sources like HowTheyVote.eu to display detailed information
+ * about EU Parliament proceedings, including MEP voting records, topic summaries, and
+ * interactive tables. It integrates seamlessly with WordPress themes.
+ *
+ * @package EP_Votes
+ * @author  eroggero
+ * @version 1.0.0
  */
 
 
