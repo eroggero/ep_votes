@@ -1,0 +1,442 @@
+/*
+ * Stile della tabella votazioni: palette pastello, chiara e poco invadente,
+ * come richiesto (niente colori accesi o saturi).
+ */
+
+.epvotes-post {
+    --epv-bg: #fafbfc;
+    --epv-border: #e6e9ef;
+    --epv-text: #3a3f4b;
+    --epv-muted: #8a90a2;
+
+    --epv-for-bg: #e3f6ea;
+    --epv-for-dot: #8fd6a8;
+    --epv-against-bg: #fbe7e7;
+    --epv-against-dot: #eda3a3;
+    --epv-abstention-bg: #eceef2;
+    --epv-abstention-dot: #b9c0cc;
+    --epv-rebel-dot: #a9c5f2;
+
+    --epv-header-bg: #eef1fb;
+    --epv-pill-bg: #f2f4f9;
+
+    /* Palette pastello per i badge di gruppo (colori nostri, non ufficiali) */
+    --epv-badge-blue-bg: #dbe9fb;      --epv-badge-blue-text: #3b5f8a;
+    --epv-badge-rose-bg: #fbe0e6;      --epv-badge-rose-text: #9c5063;
+    --epv-badge-yellow-bg: #fbf3d0;    --epv-badge-yellow-text: #8a7530;
+    --epv-badge-green-bg: #dcf1e0;     --epv-badge-green-text: #3f7a52;
+    --epv-badge-terracotta-bg: #f6ddd2; --epv-badge-terracotta-text: #9c5333;
+    --epv-badge-indigo-bg: #e2e2f7;    --epv-badge-indigo-text: #52508a;
+    --epv-badge-lavender-bg: #ece0f7;  --epv-badge-lavender-text: #6b4d8a;
+    --epv-badge-slate-bg: #e2e7ea;     --epv-badge-slate-text: #4c5c66;
+    --epv-badge-gray-bg: #ececec;      --epv-badge-gray-text: #5c5c5c;
+    --epv-badge-party-bg: #eef2f7;     --epv-badge-party-text: #45566b;
+
+    color: var(--epv-text);
+    font-size: 15px;
+}
+
+.epvotes-summary {
+    background: var(--epv-bg);
+    border: 1px solid var(--epv-border);
+    border-radius: 12px;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.epvotes-summary p {
+    margin: 0.25rem 0;
+}
+
+/* --- Pannello statistiche --- */
+.epvotes-stats-panel {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    background: linear-gradient(135deg, #f3f5fc 0%, #fbf6f0 100%);
+    border: 1px solid var(--epv-border);
+    border-radius: 14px;
+    padding: 0.9rem 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.epvotes-stats-total {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--epv-text);
+    padding-right: 0.9rem;
+    border-right: 1px solid var(--epv-border);
+}
+
+.epvotes-stats-breakdown {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.epvotes-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: var(--epv-pill-bg);
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.88rem;
+    color: var(--epv-muted);
+}
+
+.epvotes-pill-value {
+    font-weight: 700;
+    color: var(--epv-text);
+}
+
+.epvotes-pill--for { background: var(--epv-for-bg); }
+.epvotes-pill--against { background: var(--epv-against-bg); }
+.epvotes-pill--abstention { background: var(--epv-abstention-bg); }
+
+/* --- Badge di gruppo/partito --- */
+.epvotes-badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.18rem 0.55rem;
+    border-radius: 7px;
+    letter-spacing: 0.02em;
+    cursor: default;
+}
+
+.epvotes-badge--blue { background: var(--epv-badge-blue-bg); color: var(--epv-badge-blue-text); }
+.epvotes-badge--rose { background: var(--epv-badge-rose-bg); color: var(--epv-badge-rose-text); }
+.epvotes-badge--yellow { background: var(--epv-badge-yellow-bg); color: var(--epv-badge-yellow-text); }
+.epvotes-badge--green { background: var(--epv-badge-green-bg); color: var(--epv-badge-green-text); }
+.epvotes-badge--terracotta { background: var(--epv-badge-terracotta-bg); color: var(--epv-badge-terracotta-text); }
+.epvotes-badge--indigo { background: var(--epv-badge-indigo-bg); color: var(--epv-badge-indigo-text); }
+.epvotes-badge--lavender { background: var(--epv-badge-lavender-bg); color: var(--epv-badge-lavender-text); }
+.epvotes-badge--slate { background: var(--epv-badge-slate-bg); color: var(--epv-badge-slate-text); }
+.epvotes-badge--gray { background: var(--epv-badge-gray-bg); color: var(--epv-badge-gray-text); }
+.epvotes-badge--party { background: var(--epv-badge-party-bg); color: var(--epv-badge-party-text); }
+
+.epvotes-filters {
+    display: grid;
+    /* Colonne esplicite (non auto-fill/auto-fit): con un numero variabile
+       di elementi, auto-fill crea colonne vuote che restano tali invece di
+       far espandere quelle riempite, lasciando tutto ammassato a sinistra
+       con spazio sprecato a destra. Con colonne fisse, ogni filtro occupa
+       sempre la stessa frazione esatta della larghezza disponibile. */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+    margin-bottom: 1rem;
+    padding: 0.9rem;
+    background: var(--epv-bg);
+    border: 1px solid var(--epv-border);
+    border-radius: 12px;
+}
+
+/* 6 filtri in tutto: su schermi larghi stanno tutti su una riga sola,
+   su tablet due righe da 3, su mobile una colonna sola. */
+@media (min-width: 780px) {
+    .epvotes-filters {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    .epvotes-filters {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .epvotes-filters {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Stessa larghezza (garantita dalla griglia) e stessa altezza (min-height
+   esplicita) per OGNI filtro, incluso il menu partito personalizzato che
+   è strutturalmente diverso (un <div>, non un <label> come gli altri). */
+.epvotes-filters label,
+.epvotes-party-filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.3rem;
+    min-height: 64px;
+    font-size: 0.82rem;
+    color: var(--epv-muted);
+    min-width: 0;
+}
+
+.epvotes-filters input,
+.epvotes-filters select {
+    box-sizing: border-box;
+    width: 100%;
+    height: 38px;
+    border: 1px solid var(--epv-border);
+    border-radius: 8px;
+    padding: 0 0.55rem;
+    font-size: 0.9rem;
+    color: var(--epv-text);
+    background: #fff;
+}
+
+.epvotes-party-logo {
+    height: 18px;
+    max-width: 60px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/* --- Menu personalizzato "Partito nazionale" (con loghi) --- */
+.epvotes-party-filter {
+    position: relative;
+}
+
+.epvotes-party-filter-label {
+    display: block;
+}
+
+.epvotes-party-trigger {
+    box-sizing: border-box;
+    width: 100%;
+    height: 38px;
+    border: 1px solid var(--epv-border);
+    border-radius: 8px;
+    padding: 0 0.55rem;
+    font-size: 0.9rem;
+    color: var(--epv-text);
+    background: #fff;
+    text-align: left;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.epvotes-party-trigger:hover {
+    background: #fbfbfd;
+}
+
+.epvotes-party-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20;
+    margin-top: 0.3rem;
+    width: 280px;
+    max-width: 90vw;
+    background: #fff;
+    border: 1px solid var(--epv-border);
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(60, 66, 87, 0.12);
+    padding: 0.5rem;
+}
+
+.epvotes-party-panel[hidden] {
+    display: none !important;
+}
+
+.epvotes-party-search {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--epv-border);
+    border-radius: 7px;
+    padding: 0.4rem 0.55rem;
+    font-size: 0.88rem;
+    margin-bottom: 0.4rem;
+}
+
+.epvotes-party-options {
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.epvotes-party-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.4rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.88rem;
+}
+
+.epvotes-party-option:hover {
+    background: var(--epv-header-bg);
+}
+
+.epvotes-party-option[data-epvotes-hidden] {
+    display: none !important;
+}
+
+.epvotes-party-logo-small {
+    height: 16px;
+    max-width: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.epvotes-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid var(--epv-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.epvotes-table th,
+.epvotes-table td {
+    height: 52px;
+    padding: 0.4rem 0.7rem;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--epv-border);
+    font-size: 0.92rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.epvotes-table thead th {
+    background: var(--epv-header-bg);
+    color: var(--epv-text);
+    font-weight: 600;
+    font-size: 0.85rem;
+    user-select: none;
+}
+
+.epvotes-table thead th[data-sortable] {
+    cursor: pointer;
+}
+
+.epvotes-table thead th[data-sortable]:hover {
+    background: #e3e7f7;
+}
+
+.epvotes-table thead th[data-sort-active]::after {
+    content: " " attr(data-sort-direction);
+    color: var(--epv-muted);
+    font-weight: 400;
+}
+
+.epvotes-table tbody tr:hover {
+    background: #fbfbfd;
+}
+
+.epvotes-cell-vote {
+    width: 2.4rem;
+    text-align: center;
+}
+
+.epvotes-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.epvotes-dot--for { background: var(--epv-for-dot); }
+.epvotes-dot--against { background: var(--epv-against-dot); }
+.epvotes-dot--abstention { background: var(--epv-abstention-dot); }
+.epvotes-dot--did-not-vote { background: transparent; border: 1px dashed var(--epv-border); }
+.epvotes-dot--rebel { background: var(--epv-rebel-dot); }
+
+.epvotes-cell-member {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    overflow: hidden;
+}
+
+.epvotes-photo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--epv-abstention-bg);
+    flex-shrink: 0;
+}
+
+.epvotes-name {
+    font-weight: 500;
+    color: var(--epv-text);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+a.epvotes-name:hover {
+    color: #5a6b8c;
+    text-decoration: underline;
+}
+
+.epvotes-cell-rebel {
+    color: var(--epv-muted);
+}
+
+.epvotes-table tbody tr[data-epvotes-hidden] {
+    display: none !important;
+}
+
+.epvotes-empty {
+    color: var(--epv-muted);
+    font-style: italic;
+}
+
+@media (max-width: 640px) {
+    .epvotes-table thead {
+        display: none;
+    }
+    .epvotes-table, .epvotes-table tbody, .epvotes-table tr, .epvotes-table td {
+        display: block;
+        width: 100%;
+    }
+    .epvotes-table tr {
+        border-bottom: 2px solid var(--epv-border);
+        padding: 0.5rem 0;
+    }
+}
+
+.epvotes-official-summary {
+    background: var(--epv-bg);
+    border: 1px solid var(--epv-border);
+    border-radius: 12px;
+    padding: 1rem 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.epvotes-official-summary h3 {
+    margin-top: 0;
+    font-size: 1rem;
+}
+
+.epvotes-official-summary-list {
+    margin: 0.5rem 0;
+    padding-left: 1.3rem;
+}
+
+.epvotes-official-summary-list li {
+    margin-bottom: 0.4rem;
+}
+
+.epvotes-official-summary-attribution {
+    margin: 0.8rem 0 0 0;
+    font-size: 0.78rem;
+    color: var(--epv-muted);
+}
+
+.epvotes-summary-link {
+    font-size: 0.9rem;
+    color: var(--epv-muted);
+}
+
+.epvotes-factual-description {
+    color: var(--epv-muted);
+    font-style: italic;
+}
