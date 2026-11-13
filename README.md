@@ -6,12 +6,12 @@
 **Stable tag:** 1.0.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
-A WordPress plugin to track, present, and analyze European Parliament topics and MEP (Member of the European Parliament) votes on your website.
+A WordPress plugin to track, present, and analyze European Parliament topics and MEP (Member of the European Parliament) votes.
 
 ---
 
 ## Description
-The **EU Parliament Votes** plugin transforms your WordPress site into a powerful hub for European political transparency. It allows you to display detailed records of parliamentary activities, including MEP voting histories, topic summaries, and interactive data tables.
+The **EU Parliament Votes** plugin for European political transparency. It allows you to display detailed records of parliamentary activities, including MEP voting histories, topic summaries, and interactive data tables.
 
 ### Key Features
 *   **Interactive Voting Tables:** Display MEP votes in a clear, sortable, and searchable table.
@@ -21,7 +21,6 @@ The **EU Parliament Votes** plugin transforms your WordPress site into a powerfu
 *   **Shortcode Ready:** Easily embed voting data and topic summaries in posts and pages.
 
 ## Screenshots
-*(You can add screenshots here by placing them in a `assets/` folder and linking them)*
 1.  **Voting Table View:** A sample of the interactive MEP voting table.
 2.  **Topic Page Example:** How a parliamentary topic is presented.
 
