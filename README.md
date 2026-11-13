@@ -1,5 +1,5 @@
 # EU Parliament Votes (WordPress Plugin)
-**Contributors:** Elisabetta Roggero  https://www.arums.org/er
+**Contributors:** Elisabetta Roggero  https://www.arums.org/er - 
 **Tags:** european parliament, mep, votes, topics, howtheyvote, politics  
 **Requires at least:** 5.0  
 **Tested up to:** 6.0  
